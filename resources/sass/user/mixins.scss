@@ -1,0 +1,11 @@
+@mixin trans($val:.3s) {
+    -webkit-transition:all $val ease-in!important;
+    -moz-transition:all $val ease-in!important;
+    -o-transition:all $val ease-in!important;
+    transition:all $val ease-in!important;
+}
+@mixin rounded-half {
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    border-radius: 2rem;
+}

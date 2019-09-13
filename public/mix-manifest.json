@@ -1,0 +1,16 @@
+{
+    "/js/admin.js": "/js/admin.js",
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/css/auth.css": "/css/auth.css",
+    "/css/admin.css": "/css/admin.css",
+    "/front/css/app.css": "/front/css/app.css",
+    "/user/css/app.css": "/user/css/app.css",
+    "/js/auth.js": "/js/auth.js",
+    "/js/front.js": "/js/front.js",
+    "/js/user.js": "/js/user.js",
+    "/vendor/filepond/filepond.jquery.js": "/vendor/filepond/filepond.jquery.js",
+    "/vendor/summernote-bs4.min.js": "/vendor/summernote-bs4.min.js",
+    "/vendor/filepond/filepond-plugin-file-validate-type.min.js": "/vendor/filepond/filepond-plugin-file-validate-type.min.js",
+    "/vendor/filepond/filepond-plugin-image-preview.min.js": "/vendor/filepond/filepond-plugin-image-preview.min.js"
+}

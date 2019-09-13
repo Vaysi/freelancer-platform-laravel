@@ -1,0 +1,226 @@
+// Danger
+.bg-danger {
+    background-color: #fe6a6b;
+    box-shadow: 0 1px 14.58px 3.42px rgba(222, 80, 83, 0.18);
+}
+.text-danger {
+    color: #fe6a6b;
+}
+.badge-danger{
+    background-color: #fe6a6b;
+}
+.border-danger {
+    border-color: #fe6a6b;
+}
+.btn-danger{
+    border-color: transparent;
+    background-color: #fe6a6b;
+}
+// Info
+.bg-info {
+    background-color: #7bdbf5;
+}
+.btn-info {
+    background-color: #7bdbf5;
+    border-color: transparent;
+}
+.text-info {
+    color: #7bdbf5;
+}
+.badge-info{
+    background-color: #7bdbf5;
+}
+.border-info {
+    border-color: #7bdbf5;
+}
+// Alerts
+.alert {
+    &:not(.normal){
+        font-size: .75rem;
+        border-top-right-radius: 0;
+    }
+    span.bold{
+        font-weight: bold;
+    }
+    .icon {
+        i {
+            padding: 5px;
+            border:6px solid transparent;
+            border-radius: 50%;
+            width: 75px;
+            height: 75px;
+            margin:auto;
+        }
+    }
+    ul {
+        margin:0;
+        padding-right: 1rem;
+    }
+}
+.alert-yellow {
+    background-color: #fffcc2;
+    span.bold {
+        color: #826739;
+    }
+    color: #4d4d4d;
+    .icon {
+        color: #ffeba5;
+        i {
+            border-color: #ffeba5;
+        }
+    }
+    &.alert-small {
+        .icon {
+            i {
+                width: 55px;
+                height: 55px;
+            }
+        }
+    }
+}
+.alert-red {
+    background-color: #ffd2d4;
+    span.bold {
+        color: #c44346;
+    }
+    color: #4d4d4d;
+    .icon {
+        color: #fcaaac;
+        i {
+            border-color: #fcaaac;
+        }
+    }
+    &.alert-small {
+        .icon {
+            i {
+                width: 55px;
+                height: 55px;
+            }
+        }
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+a , a:hover {
+    text-decoration: none;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option , .bootstrap-select .dropdown-menu li a , .bootstrap-select .dropdown-menu li {
+    text-align: right;
+}
+
+form.corner {
+    .input-group > .custom-select:not(:last-child), .input-group > .form-control:not(:last-child) {
+        border-bottom-right-radius: 20px;
+        border-top-left-radius: 0;
+    }
+    .input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child), .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
+        border-radius: 20px 0 0 0;
+    }
+}
+
+.accordion .card {
+    border:0!important;
+    border-radius: 1rem;
+    .card-header {
+        padding-top: 0;
+        padding-bottom: 0;
+        background-color: #efefef;
+        border-radius: 1rem;
+        border:0;
+        z-index: 4;
+        .btn-link {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            color: #5c5c5c;
+            & , &:hover {
+                text-decoration:none;
+            }
+        }
+    }
+    .card-body{
+        background-color: #fafafa;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        margin-top: -20px;
+        padding: 30px 10px 10px;
+        z-index: 2;
+    }
+}
+.accordion  .card:last-of-type {
+    border-radius: 1rem;
+}
+
+.accordion  .card:not(:first-of-type) .card-header:first-child {
+    border-radius: 1rem;
+}
+
+ul.no-list {
+    li {
+        list-style: none;
+    }
+}
+
+.tooltip-inner {
+    font-family: IRANSans;
+}
+
+.leaflet-pane.leaflet-shadow-pane {
+    display: none;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    font-family: IRANSans;
+    text-align: center;
+}
+
+.note-editor.note-frame {
+    direction: ltr;
+}
+
+.note-editor.note-frame .note-editing-area {
+    direction: rtl;
+}
+
+#sidebar hr {
+    border-top: 2px dashed #666775;
+    width: 100%;
+}
+
+.filepond--root {
+    font-family: IRANSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+.timeline-item , form.corner {
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 100% !important;
+    }
+}
+// Swal
+.swal2-container {
+    .dropdown , .dropdown-toggle {
+        display: none;
+    }
+}
+// Modal
+.modal-header .close {
+    margin: -1rem auto -1rem -1rem;
+}
+.modal-footer > :not(:last-child) {
+    margin-right: 0;
+    margin-left: .25rem;
+}
+.modal-footer > :not(:first-child) {
+    margin-right: .25rem;
+    margin-left: 0;
+}
+
+.os-padding {
+    z-index: auto!important;
+}
+
+#content .os-content {
+    display: inline-table!important;
+}

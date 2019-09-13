@@ -1,0 +1,26 @@
+// Variables
+$red : #fe5959;
+$dark : #6f6f6f;
+$pink : #fd6969;
+$darkBlue : #3C3E53;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-vue/dist/bootstrap-vue.min.css";
+@import "~overlayscrollbars/css/OverlayScrollbars.min.css";
+@import "../fonts/irsans/font";
+@import "~font-awesome/css/font-awesome.min.css";
+@import "~animate.css/animate.css";
+@import "~bootstrap-select/dist/css/bootstrap-select.min.css";
+@import "~toggle-checkbox-radio/dist/toggle-checkbox-radio.min.css";
+@import "~three-dots/sass/three-dots";
+@import "~leaflet/dist/leaflet.css";
+@import "~summernote/dist/summernote-bs4.css";
+@import "~sweetalert2/dist/sweetalert2.min.css";
+@import "~filepond/dist/filepond.min.css";
+@import "~filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+@import "chat";
+@import "mixins";
+@import "classes";
+@import "animations";
+@import "override";
+@import "responsive";
