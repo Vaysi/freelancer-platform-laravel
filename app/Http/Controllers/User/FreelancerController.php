@@ -9,7 +9,8 @@ class FreelancerController extends Controller
 {
     public function index()
     {
-        return view('User.Freelancer.index');
+        $offers = user()->offers()->latest()->paginate(25);
+        return view('User.Freelancer.index',compact('offers'));
     }
 
     public function judge()

@@ -50,8 +50,8 @@
                                 <tr>
                                     <th scope="row"><small>321515</small></th>
                                     <td>
-                                        <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+                                    <a href="{{ route('') }}" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
+
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-info round">2,8000,000 تومان</button>
@@ -70,7 +70,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-info round">2,8000,000 تومان</button>
@@ -89,7 +89,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-info round">2,8000,000 تومان</button>
@@ -108,7 +108,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-info round">2,8000,000 تومان</button>
@@ -127,7 +127,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         بدون قیمت
@@ -146,7 +146,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-info round">2,8000,000 تومان</button>
@@ -165,7 +165,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-info round">2,8000,000 تومان</button>
@@ -184,7 +184,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         بدون قیمت
@@ -203,7 +203,7 @@
                                     <th scope="row"><small>321515</small></th>
                                     <td>
                                         <a href="#" class="text-dark small">طراحی وبسایت در زمینه واسطه گری در پروژه های مجری و کارفرما</a>
-                                        
+
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-info round">2,8000,000 تومان</button>

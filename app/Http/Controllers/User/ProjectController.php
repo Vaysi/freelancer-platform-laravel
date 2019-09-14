@@ -287,7 +287,7 @@ class ProjectController extends Controller
 
     public function all()
     {
-        $projects = Project::opens()->paginate(25);
+        $projects = Project::opens()->paginate(20);
         $page = 'پروژه های باز';
         // Checked this Out
         \user()->update([
@@ -298,7 +298,7 @@ class ProjectController extends Controller
 
     public function special()
     {
-        $projects = Project::opens()->where('special',true)->paginate(25);
+        $projects = Project::opens()->where('special',true)->paginate(20);
         $page = 'پروژه های ویژه';
         // Checked this Out
         \user()->update([
@@ -354,13 +354,13 @@ class ProjectController extends Controller
         \user()->update([
             'checked_at' => now()
         ]);
-        $projects = $projects->paginate(25);
+        $projects = $projects->paginate(20);
         return view('User.Project.list',compact('projects','page','request'));
     }
 
     public function urgent()
     {
-        $projects = Project::opens()->where('urgent',true)->paginate(25);
+        $projects = Project::opens()->where('urgent',true)->paginate(20);
         $page = 'پروژه های فوری';
         // Checked this Out
         \user()->update([
@@ -371,7 +371,7 @@ class ProjectController extends Controller
 
     public function hire()
     {
-        $projects = Project::opens()->where('hire',true)->paginate(25);
+        $projects = Project::opens()->where('hire',true)->paginate(20);
         $page = 'پروژه های استخدامی';
         // Checked this Out
         \user()->update([
@@ -382,7 +382,7 @@ class ProjectController extends Controller
 
     public function done()
     {
-        $projects = Project::done()->paginate(25);
+        $projects = Project::done()->paginate(20);
         return view('User.Project.done',compact('projects'));
     }
 
@@ -390,7 +390,7 @@ class ProjectController extends Controller
     {
         $projects = Project::where('status','open')->where('publish_status','open')->whereHas('skills', function (Builder $query) {
             $query->whereIn('skill_id',array_values(auth()->user()->skills()->pluck('skill_id')->toArray()));
-        })->paginate(25);
+        })->paginate(20);
         $page = 'پروژه های مرتبط با تخصص شما';
         // Checked this Out
         \user()->update([
