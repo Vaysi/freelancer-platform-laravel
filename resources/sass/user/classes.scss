@@ -158,6 +158,18 @@
     border-radius: 20px;
 }
 
+.rounded-corner-6-half {
+    border-radius: 0!important;
+    border-top-left-radius: 20px!important;
+    border-bottom-left-radius: 20px!important;
+}
+
+.rounded-corner-7-half {
+    border-radius: 0!important;
+    border-top-right-radius: 20px!important;
+    border-bottom-right-radius: 20px!important;
+}
+
 .btn-blue {
     background-image: -webkit-linear-gradient(-11deg, rgba(42, 176, 206, .6) 0%, rgba(131, 212, 230, .6) 100%), url("images/btn_bg.jpg");
     background-image: -o-linear-gradient(-11deg, rgba(42, 176, 206, .6) 0%, rgba(131, 212, 230, .6) 100%), url("images/btn_bg.jpg");
@@ -847,4 +859,13 @@ ul.custom-ul {
 }
 .hire-bg{
     background-color: #56f2a3;
+}
+
+.fullscreen {
+    position: fixed;
+    left: 2px;
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    z-index: 5000;
 }

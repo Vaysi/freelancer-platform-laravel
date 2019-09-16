@@ -5,8 +5,27 @@
         <div class="row">
             <div class="col-12 mb-3" id="projectDetails">
                 <div class="card custom">
+                    <div class="d-flex justify-content-between align-items-center px-2">
+                        <span>شرح پروژه</span>
+                        <div>
+                            @if($project->isEmployer())
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary rounded-corner-7-half">امکانات</button>
+                                    <button type="button" class="btn btn-primary rounded-corner-6-half dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuReference">
+                                        <a class="dropdown-item" href="{{ route('user.project.edit',$project->id) }}">ویرایش</a>
+                                        <a class="dropdown-item btn-ask" href="{{ route('user.project.close',$project->id) }}">بستن مناقصه</a>
+                                    </div>
+                                </div>
+                            @endif
+                            <button class="rounded-circle btn btn-outline-secondary mr-2" id="fullscreen"><i class="fa fa-expand"></i></button>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="card-title d-flex justify-content-between align-items-center">
-                        <span>{{ limit($project->title) }}</span>
+                        <span>{{ limit($project->title,60) }}</span>
                         <span class="bg-transparent small">
                             <span class="text-danger">
                                 دسته بندی :
@@ -21,16 +40,21 @@
                     </div>
                     <hr class="my-0 mb-2">
                     <div class="card-body">
-                        <div class="d-flex">
-                            <a href="{{ route('resume.view',['user'=>$project->user->id]) }}">
-                                <img src="{{ $project->user->avatar }}" class="avatarSpec img-thumbnail">
-                            </a>
-                            <div class="mr-2 pt-2">
-                                <a href="{{ route('resume.view',['user'=>$project->user->id]) }}" class="text-dark-3 d-block">
-                                    <span class="font-weight-bold">{{ $project->user->name() }}</span>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex">
+                                <a href="{{ route('resume.view',['user'=>$project->user->id]) }}">
+                                    <img src="{{ $project->user->avatar }}" class="avatarSpec img-thumbnail">
                                 </a>
-                                <span class="d-block">امتیاز : {{ $project->user->points }}</span>
-                                <span class="d-block">پروژه های موفق : <span>{{ $project->user()->first()->successfulProjects() }}</span> از <span>{{ $project->user()->first()->allProjects() }}</span></span>
+                                <div class="mr-2 pt-2">
+                                    <a href="{{ route('resume.view',['user'=>$project->user->id]) }}" class="text-dark-3 d-block">
+                                        <span class="font-weight-bold">{{ $project->user->name() }}</span>
+                                    </a>
+                                    <span class="d-block">امتیاز : {{ $project->user->points }}</span>
+                                    <span class="d-block">پروژه های موفق : <span>{{ $project->user()->first()->successfulProjects() }}</span> از <span>{{ $project->user()->first()->allProjects() }}</span></span>
+                                </div>
+                            </div>
+                            <div class="h4">
+                                <span class="text-white {!! project_tags($project,false,true) !!} badge">{{ project_tags($project,true) }}</span>
                             </div>
                         </div>
                         <div class="projectContent text-justify py-2">
@@ -163,6 +187,9 @@
             if(isEmpty < 2){
                 $("#buttons").hide();
             }
+            $("#fullscreen").click(function () {
+                $(this).parents('.card').toggleClass('fullscreen');
+            });
         });
     </script>
 @stop

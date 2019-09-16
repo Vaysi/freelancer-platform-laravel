@@ -34,7 +34,7 @@ window.onload = function(){
 require('pusher-js');
 
 
-window.contentS = "";
+window.contentS = "",window.sidebarS = "";
 // Jquery Stuff
 $(function () {
     $('.toast').toast({
@@ -61,7 +61,7 @@ $(function () {
         },
     });
     // Sidebar Scroll
-    $('#sidebar .wrapper').overlayScrollbars({
+    window.sidebarS = $('#sidebar .wrapper').overlayScrollbars({
         className:"os-theme-light",
         autoUpdate:true,
         scrollbars : {
@@ -98,6 +98,7 @@ $(function () {
             $(this).addClass('active');
             $('.menu .submenu.active').removeClass('active').slideUp(500);
             $(this).next('.submenu').slideDown(500).addClass('active');
+            moveScroll('#sidebar .menu .nav-link',700,0,true);
         }
     });
     $('.toggle a').click(function () {
@@ -211,8 +212,12 @@ global.number_format = function (number, decimals, decPoint, thousandsSep) {
 
     return (number < 0 ? '-' : '') + numbersString + formattedNumber + (decimalsString ? (decPoint + decimalsString) : '');
 };
-global.moveScroll = function (to, delay = 700, skip=150) {
-    contentS.overlayScrollbars().scroll({ y : $(to).offset().top - parseInt(skip) , x:0 }, delay);
+global.moveScroll = function (to, delay = 700, skip=150,sidebar=false) {
+    if(sidebar){
+        sidebarS.overlayScrollbars().scroll({ y : $(to).last().offset().top , x:0 }, delay);
+    }else {
+        contentS.overlayScrollbars().scroll({ y : $(to).offset().top - parseInt(skip) , x:0 }, delay);
+    }
 };
 global.ringnow = function(){
     let audio = new Audio(window.location.origin + "/js/ring.mp3");

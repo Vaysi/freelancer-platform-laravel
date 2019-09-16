@@ -138,10 +138,10 @@
                                 $diff = $created->diffInDays(now());
                             @endphp
                             @continue($project->sticky && $diff <= 2)
-                            <div class="item mb-4 {{ project_tags($project) }}">
+                            <div class="item mb-4 {{ project_tags($project,false,false) }}">
                                 <div class="wrapper p-3">
                                     <div class="title hasBadge">
-                                        <span class="MainTitle">
+                                        <span class="MainTitle {{ empty(project_tags($project)) ? 'w-100' : '' }}">
                                             <span class="icon">
                                                 <i class="fa fa-file-code-o ml-2"></i>
                                             </span>

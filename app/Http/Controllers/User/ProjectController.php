@@ -225,7 +225,8 @@ class ProjectController extends Controller
                 option('site',intval(option('site')) + $price);
                 option('earning',intval(option('earning')) + $price);
                 $project->update([
-                    'is_paid' => true
+                    'is_paid' => true,
+                    'confirmed_at' => null
                 ]);
                 Payment::create([
                     'price' => $price,
@@ -235,7 +236,7 @@ class ProjectController extends Controller
                     'model' => 'Project',
                     'model_id' => $project->id,
                 ]);
-                alert()->success('عملیات موفق !','تغیرات با موفقیت ذخیره شد , و هزینه پروژه از موجودی حساب شما کسر شد !');
+                alert()->success('عملیات موفق !','پروژه شما با موفقیت ویرایش شد و در انتظار تایید مدیریت میباشد !');
                 return redirect()->back();
             }
         }else {
@@ -266,6 +267,7 @@ class ProjectController extends Controller
                     if(!$project->sticky && $request->has('sticky')){
                         $data['sticky'] = 1;
                     }
+                    $data['confirmed_at'] = null;
                     $project->update($data);
                     Payment::create([
                         'price' => $uprice,
@@ -275,11 +277,11 @@ class ProjectController extends Controller
                         'model' => 'Project',
                         'model_id' => $project->id,
                     ]);
-                    alert()->success('عملیات موفق !','تغیرات با موفقیت ذخیره شد , و هزینه پروژه از موجودی حساب شما کسر شد !');
+                    alert()->success('عملیات موفق !','پروژه شما با موفقیت ویرایش شد و در انتظار تایید مدیریت میباشد !');
                     return redirect()->back();
                 }
             }else {
-                alert()->success('عملیات موفق !', 'تغیرات با موفقیت ذخیره شد !');
+                alert()->success('عملیات موفق !', 'پروژه شما با موفقیت ویرایش شد و در انتظار تایید مدیریت میباشد !');
                 return redirect()->back();
             }
         }
@@ -747,6 +749,21 @@ class ProjectController extends Controller
         return view('User.Project.deposit',compact('project'));
     }
 
+    public function close(Project $project)
+    {
+        $this->ifIsEmployer($project);
+        if(in_array($project->status,['emp_trust','flc_trust','trust_done','flc_done','closed','ended'])){
+            alert()->error('خطا!','امکان انجام این عملیات وجود ندارد !');
+            return redirect($project->link());
+        }
+        $project->update([
+            'status' => 'ended',
+            'publish_status' => 'canceled'
+        ]);
+        alert()->warning('تبریک!','پروژه بسته شد و دیگر در لیست پروژه ها نمایش داده نمیشود !');
+        return redirect($project->link());
+    }
+
     public function depositAction(Project $project,Request $request)
     {
         $this->ifIsEmployer($project);
@@ -897,6 +914,47 @@ class ProjectController extends Controller
             // Notification
             Notification::create([
                 'text' => sprintf('پروژه %s به آگهی استخدامی تبدیل شد !',limit($project->title,30,'')),
+                'user_id' => $project->user->id,
+                'url' => route('user.project.view',['project' => $project->id]),
+                'type' => 'success'
+            ]);
+        }else {
+            $project->update(['hire'=>true]);
+            alert()->error('عملیات ناموفق',"آگهی شما هم اکنون در دسته استخدامی است !");
+        }
+        if($project->freelancer()->count()){
+            return redirect(route('conversations.etf',['project' => $project->id,'user'=>$project->freelancer->id]));
+        }else {
+            return redirect(route('user.project.view',['project' => $project->id]));
+        }
+    }
+
+    public function convertUrgent(Project $project)
+    {
+        $this->ifIsEmployer($project);
+        if(!$project->urgent){
+            $price = intval(option('urgent'));
+            if(auth()->user()->balance($price)){
+                auth()->user()->balance($price,"-");
+                option('earning',intval(option('earning')) + $price);
+                option('site',intval(option('site')) + $price);
+                Payment::create([
+                    'price' => $price,
+                    'user_id' => \user()->id,
+                    'status' => true,
+                    'message' => sprintf('تبدیل پروژه %s به فوری !',limit($project->title,20)),
+                    'model' => 'Project',
+                    'model_id' => $project->id
+                ]);
+                $project->update(['urgent'=>true]);
+                alert()->success('عملیات موفق',"آگهی شما به فوری تبدیل شد !");
+            }else {
+                $shouldPay = $price - user()->balance;
+                return redirect(route('money.pay',['amount'=>$shouldPay]));
+            }
+            // Notification
+            Notification::create([
+                'text' => sprintf('پروژه %s به آگهی فوری تبدیل شد !',limit($project->title,30,'')),
                 'user_id' => $project->user->id,
                 'url' => route('user.project.view',['project' => $project->id]),
                 'type' => 'success'

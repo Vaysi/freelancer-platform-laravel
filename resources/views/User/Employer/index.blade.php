@@ -11,17 +11,17 @@
                     @csrf
                     <div class="form-group">
                         <label for="title">عنوان پروژه</label>
-                        <input type="text" class="form-control form-control-sm" id="title" placeholder="عنوان پروژه را وارد کنید">
+                        <input type="text" class="form-control form-control-sm" name="title" id="title" placeholder="عنوان پروژه را وارد کنید" value="{{ isset($request) ? $request->title : '' }}">
                     </div>
                     <div class="form-group">
                         <label for="status">وضعیت پروژه</label>
                         <select name="status" id="status" class="selectpicker w-100">
-                            <option value="all">همه درخواست ها</option>
-                            <option value="">اماده دریافت پیشنهادات</option>
-                            <option value="">انجام شده</option>
-                            <option value="">در حال انجام</option>
-                            <option value="">پیشنویس</option>
-                            <option value="">در انتظار تایید</option>
+                            <option value="">همه درخواست ها</option>
+                            <option value="open" {{ isset($request) && $request->status == 'open' ? 'selected' : '' }}>اماده دریافت پیشنهادات</option>
+                            <option value="closed" {{ isset($request) && $request->status == 'closed' ? 'selected' : '' }}>انجام شده</option>
+                            <option value="working" {{ isset($request) && $request->status == 'working' ? 'selected' : '' }}>در حال انجام</option>
+                            <option value="draft" {{ isset($request) && $request->status == 'draft' ? 'selected' : '' }}>پیشنویس</option>
+                            <option value="pending" {{ isset($request) && $request->status == 'pending' ? 'selected' : '' }}>در انتظار تایید</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -36,7 +36,7 @@
             <div class="col-12 mb-3" id="emp_req">
                 <div class="card custom">
                     <div class="card-title">
-                        <span> <i class="fa fa-list align-middle"></i> فهرست درخواست های ثبت شده از سوی شما | <span class="text-danger">{{ $count }} مورد</span></span>
+                        <span> <i class="fa fa-list align-middle"></i> فهرست درخواست های ثبت شده از سوی شما | <span class="text-danger">{{ $projects->count() }} مورد</span></span>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

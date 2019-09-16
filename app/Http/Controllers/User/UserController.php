@@ -183,7 +183,23 @@ class UserController extends Controller
 
     public function invite(User $user)
     {
+        if($user->id == user()->id){
+            alert()->error('خطا!','شما نمیتوانید از خودتان دعوت به همکاری کنید !');
+            return redirect()->route('userDashboard');
+        }
         return view('User.pages.invite', compact('user'));
+    }
+
+    public function inviteFor(Project $project)
+    {
+        $users = User::orderBy('score')->orderBy('updated_at')->paginate(25);
+        $render = $users->render();
+        $users = $users->sortByDesc(function ($product){
+            return $product->allJobs();
+        })->sortByDesc(function ($product){
+            return $product->points;
+        });
+        return view('User.pages.inviteTo', compact('project','users','render'));
     }
 
     public function inviteIt(User $user, Project $project)

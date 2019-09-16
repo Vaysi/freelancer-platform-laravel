@@ -40,6 +40,8 @@ if (!function_exists('project_status')) {
                 return '65';
             }elseif($project->status == "closed") {
                 return '100';
+            }elseif($project->status == "ended") {
+                return '0';
             }elseif($project->status == "trust_done") {
                 return '75';
             }elseif($project->status == "flc_done") {
@@ -63,6 +65,8 @@ if (!function_exists('project_status')) {
                 return '<span class="badge badge-warning">در انتظار گروگزاری مجری</span>';
             }elseif($project->status == "closed") {
                 return '<span class="badge badge-success">پایان یافته</span>';
+            }elseif($project->status == "ended") {
+                return '<span class="badge badge-success">لغو شده</span>';
             }elseif($project->status == "trust_done") {
                 return '<span class="badge badge-info">در حال انجام</span>';
             }elseif($project->isExpired()){
@@ -81,6 +85,8 @@ if (!function_exists('project_status')) {
                 return 'در انتظار گروگزاری مجری';
             }elseif($project->status == "closed") {
                 return 'پروژه توسط خریدار تایید شده';
+            }elseif($project->status == "ended") {
+                return 'لغو شده';
             }elseif($project->status == "flc_done") {
                 return 'مجری تحویل داده';
             }elseif($project->isExpired()){
@@ -97,7 +103,7 @@ if (!function_exists('project_status')) {
 }
 
 if (!function_exists('project_tags')) {
-    function project_tags($project,$return=false)
+    function project_tags($project,$return=false,$bg=true)
     {
         if($return){
             if($project->sticky){
@@ -116,15 +122,15 @@ if (!function_exists('project_tags')) {
         }else {
             $r = '';
             if($project->sticky){
-                $r .= 'sticky sticky-bg';
+                $r .= 'sticky' . ($bg ? ' sticky-bg' : '');
             }elseif($project->private) {
-                $r .= 'private private-bg';
+                $r .= 'private' . ($bg ? ' private-bg' : '');
             }elseif($project->urgent) {
-                $r .= 'urgent urgent-bg';
+                $r .= 'urgent' . ($bg ? ' urgent-bg' : '');
             }elseif($project->special) {
-                $r .= 'special special-bg';
+                $r .= 'special' . ($bg ? ' special-bg' : '');
             }elseif($project->hire) {
-                $r .= 'hire hire-bg';
+                $r .= 'hire' . ($bg ? ' hire-bg' : '');
             }
             return $r;
         }

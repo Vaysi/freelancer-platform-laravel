@@ -71,7 +71,7 @@ class Project extends Model
 
     public function scopeOpens($query)
     {
-        return $query->where('publish_status','open')->where('confirmed_at','!=',null)->where('is_paid',true)->where('expires_at','<',now())->latest();
+        return $query->where('publish_status','open')->where('confirmed_at','!=',null)->where('is_paid',true)->whereDate('expires_at','>',now())->latest();
     }
 
     public function link()

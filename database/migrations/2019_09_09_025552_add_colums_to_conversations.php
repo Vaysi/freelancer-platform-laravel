@@ -15,7 +15,7 @@ class AddColumsToConversations extends Migration
     {
         Schema::table('conversations', function (Blueprint $table) {
             $table->unsignedBigInteger('judge_id')->nullable();
-            $table->unsignedBigInteger('judgement_id')->nullable();
+            $table->unsignedBigInteger('ticket_id')->nullable();
             $table->string('status')->default('pending');
             $table->boolean('read')->default(false);
         });

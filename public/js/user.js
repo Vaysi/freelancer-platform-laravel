@@ -91334,7 +91334,7 @@ window.onload = function () {
 
 __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 
-window.contentS = ""; // Jquery Stuff
+window.contentS = "", window.sidebarS = ""; // Jquery Stuff
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.toast').toast({
@@ -91361,7 +91361,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
     }
   }); // Sidebar Scroll
 
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()('#sidebar .wrapper').overlayScrollbars({
+  window.sidebarS = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#sidebar .wrapper').overlayScrollbars({
     className: "os-theme-light",
     autoUpdate: true,
     scrollbars: {
@@ -91400,6 +91400,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.menu .submenu.active').removeClass('active').slideUp(500);
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).next('.submenu').slideDown(500).addClass('active');
+      moveScroll('#sidebar .menu .nav-link', 700, 0, true);
     }
   });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.toggle a').click(function () {
@@ -91524,10 +91525,19 @@ global.number_format = function (number, decimals, decPoint, thousandsSep) {
 global.moveScroll = function (to) {
   var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 700;
   var skip = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 150;
-  contentS.overlayScrollbars().scroll({
-    y: jquery__WEBPACK_IMPORTED_MODULE_0___default()(to).offset().top - parseInt(skip),
-    x: 0
-  }, delay);
+  var sidebar = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+  if (sidebar) {
+    sidebarS.overlayScrollbars().scroll({
+      y: jquery__WEBPACK_IMPORTED_MODULE_0___default()(to).last().offset().top,
+      x: 0
+    }, delay);
+  } else {
+    contentS.overlayScrollbars().scroll({
+      y: jquery__WEBPACK_IMPORTED_MODULE_0___default()(to).offset().top - parseInt(skip),
+      x: 0
+    }, delay);
+  }
 };
 
 global.ringnow = function () {

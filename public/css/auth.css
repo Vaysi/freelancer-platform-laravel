@@ -18087,6 +18087,18 @@ a.text-dark:focus {
   border-radius: 20px;
 }
 
+.rounded-corner-6-half {
+  border-radius: 0 !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.rounded-corner-7-half {
+  border-radius: 0 !important;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
 .btn-blue {
   background-image: linear-gradient(-11deg, rgba(42, 176, 206, 0.6) 0%, rgba(131, 212, 230, 0.6) 100%), url(/images/btn_bg.jpg?c878d6df15827386c3cc345f48808d9e);
   box-shadow: 0 1px 26.24px 5.76px rgba(125, 182, 217, 0.28);
@@ -18820,6 +18832,15 @@ ul.custom-ul > li:hover::before {
 
 .hire-bg {
   background-color: #56f2a3;
+}
+
+.fullscreen {
+  position: fixed;
+  left: 2px;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  z-index: 5000;
 }
 
 @-webkit-keyframes blinker {

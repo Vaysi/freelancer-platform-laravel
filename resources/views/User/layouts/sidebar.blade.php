@@ -112,6 +112,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('portfolio.index') }}" class="nav-link">
+                            <span class="icon"><i class="fa fa-briefcase"></i></span>
+                            نمونه کار های من
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('premium') }}" class="nav-link">
                             <span class="icon"><i class="fa fa-gift"></i></span>
                             حساب کاربری ویژه

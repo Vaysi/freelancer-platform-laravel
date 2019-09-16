@@ -69,6 +69,7 @@ Route::namespace('User')->prefix('user')->middleware(['auth:web','lastLogin'])->
     Route::get('project/new','ProjectController@index')->name('user.project.new');
     Route::post('project/new','ProjectController@store')->name('user.project.store');
     Route::get('project/{project}/edit','ProjectController@edit')->name('user.project.edit');
+    Route::get('project/{project}/close','ProjectController@close')->name('user.project.close');
     Route::patch('project/{project}/update','ProjectController@update')->name('user.project.update');
     Route::post('project/new/categories','ProjectController@subcategory')->name('user.project.store.categories');
     Route::get('project/{project}','ProjectController@view')->name('user.project.view');
@@ -107,6 +108,8 @@ Route::namespace('User')->prefix('user')->middleware(['auth:web','lastLogin'])->
         Route::get('/{project}/warranty','ProjectController@freelancerWarranty')->name('project.warranty');
         // Convert To Hire
         Route::get('/{project}/make/hire','ProjectController@convertHire')->name('project.convert.hire');
+        // Convert To Urgent
+        Route::get('/{project}/make/urgent','ProjectController@convertUrgent')->name('project.convert.urgent');
         // Convert To Special
         Route::get('/{project}/make/special','ProjectController@convertSpecial')->name('project.convert.special');
         // Convert To Hidden
@@ -194,6 +197,7 @@ Route::namespace('User')->prefix('user')->middleware(['auth:web','lastLogin'])->
     Route::get('notification/{notification}','UserController@viewNotification')->name('notification.view');
     // Invite
     Route::get('invite/{user}','UserController@invite')->name('invite.user');
+    Route::get('invite/project/{project}','UserController@inviteFor')->name('invite.user.to.project');
     Route::get('invite/{user}/project/{project}','UserController@inviteIt')->name('invite.user.project');
     // Chat Application
     Route::get('api/users', 'UserController@chatFirst');

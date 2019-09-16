@@ -69,7 +69,7 @@
                 @if($project->status == 'open')
                     @if($project->isEmployer())
                         <div class="my-2">
-                            <a href="#" class="btn btn-outline-danger w-100 round">
+                            <a href="{{ route('invite.user.to.project',$project->id) }}" class="btn btn-outline-danger w-100 round">
                                 <i class="fa fa-check ml-1"></i>
                                 دعوت از مجری ها
                             </a>
@@ -86,6 +86,38 @@
                                 انتشار در توییتر
                             </a>
                         </div>
+                        @if(!$project->hire)
+                            <div class="my-2">
+                                <a href="{{ route('project.convert.hire',['project'=>$project->id]) }}" class="btn btn-outline-success w-100 round">
+                                    <i class="fa fa-briefcase ml-1"></i>
+                                    تبدیل به آگهی استخدام / اعلان
+                                </a>
+                            </div>
+                        @endif
+                        @if(!$project->urgent)
+                            <div class="my-2">
+                                <a href="{{ route('project.convert.urgent',['project'=>$project->id]) }}" class="btn btn-outline-danger w-100 round">
+                                    <i class="fa fa-thumbs-up ml-1"></i>
+                                    زدن برچسب فوری
+                                </a>
+                            </div>
+                        @endif
+                        @if(!$project->special)
+                            <div class="my-2">
+                                <a href="{{ route('project.convert.special',['project'=>$project->id]) }}" class="btn btn-outline-warning w-100 round">
+                                    <i class="fa fa-star ml-1"></i>
+                                    بالا بردن جذابیت آگهی
+                                </a>
+                            </div>
+                        @endif
+                        @if(!$project->hidden)
+                            <div class="my-2">
+                                <a href="{{ route('project.convert.hidden',['project'=>$project->id]) }}" class="btn btn-outline-secondary w-100 round">
+                                    <i class="fa fa-eye ml-1"></i>
+                                    مخفی کردن از دید گوگل
+                                </a>
+                            </div>
+                        @endif
                     @endif
                 @endif
                 @if($project->status == 'closed')
@@ -109,7 +141,7 @@
                         @endif
                     @endif
                 @endif
-                @if($project->status == 'emp_trust' && $project->isEmployer())
+                @if($project->status == 'emp_trust' && $project->isEmployer() && $project->offer_id)
                     <div class="my-2">
                         <a href="{{ route('project.prepayment',['project' => $project->id]) }}" class="btn btn-danger w-100 round blinker btn-ask">
                             <i class="fa fa-money ml-1"></i>
@@ -117,7 +149,7 @@
                         </a>
                     </div>
                 @endif
-                @if($project->deposit < 100 && $project->isEmployer())
+                @if($project->deposit < 100 && $project->isEmployer() && $project->offer_id)
                     <div class="my-2">
                         <a href="{{ route('user.project.deposits',['project' => $project->id]) }}" class="btn btn-danger w-100 round btn-ask">
                             <i class="fa fa-money ml-1"></i>
@@ -151,23 +183,6 @@
                                 </a>
                             </div>
                         @endif
-                        @if(!$project->special)
-                            <div class="my-2">
-                                <a href="{{ route('project.convert.special',['project'=>$project->id]) }}" class="btn btn-outline-warning w-100 round">
-                                    <i class="fa fa-star ml-1"></i>
-                                    بالا بردن جذابیت آگهی
-                                </a>
-                            </div>
-                        @endif
-                        @if(!$project->hidden)
-                            <div class="my-2">
-                                <a href="{{ route('project.convert.hidden',['project'=>$project->id]) }}" class="btn btn-outline-secondary w-100 round">
-                                    <i class="fa fa-eye ml-1"></i>
-                                    مخفی کردن از دید گوگل
-                                </a>
-                            </div>
-                        @endif
-
                     @endif
                 @endif
                 @if(in_array($project->status,['flc_done','trust_done']))
