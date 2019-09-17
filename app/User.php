@@ -322,4 +322,14 @@ class User extends Authenticatable
     {
         return url('?ref='.user()->id);
     }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class)->where('type','support');
+    }
+
+    public function judges()
+    {
+        return $this->hasMany(Ticket::class)->where('type','judgement');
+    }
 }
