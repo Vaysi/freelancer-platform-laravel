@@ -323,6 +323,11 @@ class User extends Authenticatable
         return url('?ref='.user()->id);
     }
 
+    public function supports()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
     public function tickets()
     {
         return $this->hasMany(Ticket::class)->where('type','support');

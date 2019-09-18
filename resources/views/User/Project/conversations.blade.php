@@ -82,7 +82,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="message" class="form-label">پیام</label>
-                                    <textarea type="text" name="message" class="form-control" id="message" rows="5">{{ old('content') }}</textarea>
+                                    <textarea type="text" name="message" class="form-control" id="message" rows="5">{{ old('message') }}</textarea>
                                     @if($project->isFreelancer())
                                         <div class="deliverProject collapse">
                                             <label class="my-2"><input type="checkbox" name="deliver" id="deliver" value="1" class="checkbox color-success is-material has-animation is-large" /> تحویل پروژه به کارفرما </label>

@@ -18742,8 +18742,8 @@ ul.custom-ul > li:hover::before {
 
 #onlineChat {
   position: fixed;
-  bottom: 15px;
-  left: 15px;
+  bottom: 25px;
+  left: 40px;
   z-index: 6000;
 }
 

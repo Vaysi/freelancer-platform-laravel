@@ -19,7 +19,7 @@
                 <span class="icon"><i class="fa fa-file"></i></span>
                 پروژه ها
             </a>
-            <div class="submenu {{ checkPage('*project*',true) ? 'show active' : '' }}">
+            <div id="projects" class="submenu {{ checkPage('*project*',true) ? 'show active' : '' }}">
                 <ul class="nav flex-column pr-0 mr-0 isDropdown">
                     <li class="nav-item">
                         <a href="{{ route('user.project.new') }}" class="nav-link {{ checkPage('user.project.new') }}">
@@ -71,7 +71,7 @@
                 <span class="icon"><i class="fa fa-handshake-o"></i></span>
                 کارفرما
             </a>
-            <div class="submenu">
+            <div id="employer" class="submenu">
                 <ul class="nav flex-column pr-0 mr-0 isDropdown">
                     <li class="nav-item">
                         <a href="{{ route('employer.requests') }}" class="nav-link">
@@ -97,7 +97,7 @@
                 <span class="icon"><i class="fa fa-user-secret"></i></span>
                 مجری
             </a>
-            <div class="submenu">
+            <div id="freelancer" class="submenu">
                 <ul class="nav flex-column pr-0 mr-0 isDropdown">
                     <li class="nav-item">
                         <a href="{{ route('freelancer.requests') }}" class="nav-link">
@@ -129,7 +129,7 @@
                 <span class="icon"><i class="fa fa-google-wallet"></i></span>
                 امور مالی
             </a>
-            <div class="submenu {{ checkPage('*financial*',true) ? 'show active' : '' }}">
+            <div id="financial" class="submenu {{ checkPage('*financial*',true) ? 'show active' : '' }}">
                 <ul class="nav flex-column pr-0 mr-0 isDropdown">
                     <li class="nav-item">
                         <a href="{{ route('money.index') }}" class="nav-link {{ checkPage('money.index') }}">
@@ -161,7 +161,7 @@
                 <span class="icon"><i class="fa fa-headphones"></i></span>
                 پشتیبانی
             </a>
-            <div class="submenu">
+            <div id="support" class="submenu">
                 <ul class="nav flex-column pr-0 mr-0 isDropdown">
                     <li class="nav-item">
                         <a href="{{ route('rules') }}" class="nav-link text-warning">
@@ -206,7 +206,7 @@
                 <span class="icon"><i class="fa fa-user"></i></span>
                 پروفایل من
             </a>
-            <div class="submenu">
+            <div id="myprofile" class="submenu">
                 <ul class="nav flex-column pr-0 mr-0 isDropdown">
                     <li class="nav-item">
                         <a href="{{ route('resume.me') }}" class="nav-link">
@@ -238,7 +238,7 @@
                 <span class="icon"><i class="fa fa-user-plus"></i></span>
                کسب درامد
             </a>
-            <div class="submenu">
+            <div id="earn" class="submenu">
                 <ul class="nav flex-column pr-0 mr-0 isDropdown">
                     <li class="nav-item">
                         <a href="{{ route('affiliate.invite') }}" class="nav-link text-warning">

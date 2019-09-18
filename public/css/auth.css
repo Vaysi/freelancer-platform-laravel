@@ -18742,8 +18742,8 @@ ul.custom-ul > li:hover::before {
 
 #onlineChat {
   position: fixed;
-  bottom: 15px;
-  left: 15px;
+  bottom: 25px;
+  left: 40px;
   z-index: 6000;
 }
 
@@ -19178,7 +19178,7 @@ body {
   direction: rtl;
   background: url(/images/bg.jpg?fc2978a41518e9c392f679ba32b0a616) center center no-repeat;
   background-size: cover;
-  font-family: Vazir, sans-serif;
+  font-family: IRANSans, sans-serif;
   overflow-x: hidden;
 }
 

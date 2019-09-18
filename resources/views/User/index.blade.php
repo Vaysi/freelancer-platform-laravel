@@ -126,13 +126,13 @@
                                 </a>
                             </li>
                             <li class="nav-item  mx-3">
-                                <a class="nav-link" id="projects-tab" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="false">
+                                <a class="nav-link" id="myprojects-tab" data-toggle="tab" href="#myprojects" role="tab" aria-controls="myprojects" aria-selected="false">
                                     سفارشات شما
                                     <span class="badge badge-success align-middle">{{ user()->projects()->whereIn('status',['open' , 'emp_trust','flc_trust','trust_done','flc_done'])->where('expires_at','>',now())->count() }} فعال </span>
                                 </a>
                             </li>
                             <li class="nav-item  mr-3">
-                                <a class="nav-link" id="freelancer-tab" data-toggle="tab" href="#freelancer" role="tab" aria-controls="freelancer" aria-selected="false">
+                                <a class="nav-link" id="jobs-tab" data-toggle="tab" href="#jobs" role="tab" aria-controls="jobs" aria-selected="false">
                                     اجرا های شما
                                     <span class="badge badge-warning align-middle">{{ user()->currentJobs() }} فعال</span>
                                 </a>
@@ -195,7 +195,7 @@
                                     <div class="alert alert-danger">شما هیچ گفتگویی ندارید !</div>
                                 @endforelse
                             </div>
-                            <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+                            <div class="tab-pane fade" id="myprojects" role="tabpanel" aria-labelledby="myprojects-tab">
                                 @php
                                     $projects = user()->projects()->orderByRaw("FIELD(status , 'open' , 'emp_trust','flc_trust','trust_done','flc_done') DESC")->paginate(25);
                                 @endphp
@@ -286,7 +286,7 @@
                                     </div>
                                 @endif
                             </div>
-                            <div class="tab-pane fade" id="freelancer" role="tabpanel" aria-labelledby="freelancer-tab">
+                            <div class="tab-pane fade" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
                                 @php
                                     $projects = user()->jobs()->orderByRaw("FIELD(status , 'open' , 'emp_trust','flc_trust','trust_done','flc_done') DESC")->paginate(25);
                                 @endphp

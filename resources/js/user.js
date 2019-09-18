@@ -34,11 +34,15 @@ window.onload = function(){
 require('pusher-js');
 
 
-window.contentS = "",window.sidebarS = "";
+window.contentS = "";
+window.sidebarS = ""
 // Jquery Stuff
 $(function () {
     $('.toast').toast({
         delay:5000
+    });
+    $("#fullscreen").click(function () {
+        $(this).parents('.card').toggleClass('fullscreen');
     });
     // Logout
     $("#logout").click(function (e) {
@@ -67,7 +71,8 @@ $(function () {
         scrollbars : {
             autoHide : "leave"
         },
-    }).removeClass("os-host-rtl");
+    });
+    window.sidebarS.removeClass("os-host-rtl");
     // Action Verification Required
     $(".btn-ask").click(function (e) {
         e.preventDefault();
@@ -98,7 +103,11 @@ $(function () {
             $(this).addClass('active');
             $('.menu .submenu.active').removeClass('active').slideUp(500);
             $(this).next('.submenu').slideDown(500).addClass('active');
-            moveScroll('#sidebar .menu .nav-link',700,0,true);
+            let target = $(this).next('.submenu').attr('id');
+            console.log($('#'+target).length);
+            setTimeout(function(){
+                moveScroll('#'+target,700,0,true);
+            },600);
         }
     });
     $('.toggle a').click(function () {
@@ -214,7 +223,7 @@ global.number_format = function (number, decimals, decPoint, thousandsSep) {
 };
 global.moveScroll = function (to, delay = 700, skip=150,sidebar=false) {
     if(sidebar){
-        sidebarS.overlayScrollbars().scroll({ y : $(to).last().offset().top , x:0 }, delay);
+        sidebarS.overlayScrollbars().scroll({ y : $(to).offset().top , x:0 }, delay);
     }else {
         contentS.overlayScrollbars().scroll({ y : $(to).offset().top - parseInt(skip) , x:0 }, delay);
     }

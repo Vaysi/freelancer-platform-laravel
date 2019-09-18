@@ -7,20 +7,23 @@
                 <div class="card custom">
                     <div class="d-flex justify-content-between align-items-center px-2">
                         <span>شرح پروژه</span>
-                        <div>
+                        <div class="d-flex">
                             @if($project->isEmployer())
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary rounded-corner-7-half">امکانات</button>
-                                    <button type="button" class="btn btn-primary rounded-corner-6-half dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                                        <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-primary rounded-half" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">امکانات <i class="fa fa-chevron-down"></i></button>
                                     <div class="dropdown-menu text-right" aria-labelledby="dropdownMenuReference">
-                                        <a class="dropdown-item" href="{{ route('user.project.edit',$project->id) }}">ویرایش</a>
-                                        <a class="dropdown-item btn-ask" href="{{ route('user.project.close',$project->id) }}">بستن مناقصه</a>
+                                        <a class="dropdown-item" href="{{ route('user.project.edit',$project->id) }}">
+                                            <i class="fa fa-edit"></i>
+                                            ویرایش
+                                        </a>
+                                        <a class="dropdown-item btn-ask" href="{{ route('user.project.close',$project->id) }}">
+                                            <i class="fa fa-close"></i>
+                                            بستن مناقصه
+                                        </a>
                                     </div>
                                 </div>
                             @endif
-                            <button class="rounded-circle btn btn-outline-secondary mr-2" id="fullscreen"><i class="fa fa-expand"></i></button>
+                            <button class="rounded-circle btn btn-outline-secondary mr-2" id="fullscreen" data-toggle="tooltip" data-placement="top" title="Fullscreen"><i class="fa fa-expand"></i></button>
                         </div>
                     </div>
                     <hr>
@@ -187,9 +190,6 @@
             if(isEmpty < 2){
                 $("#buttons").hide();
             }
-            $("#fullscreen").click(function () {
-                $(this).parents('.card').toggleClass('fullscreen');
-            });
         });
     </script>
 @stop

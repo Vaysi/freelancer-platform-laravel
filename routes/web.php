@@ -146,6 +146,12 @@ Route::namespace('User')->prefix('user')->middleware(['auth:web','lastLogin'])->
     // Support
     Route::group(['prefix'=>'support'],function (){
         Route::get('/','SupportController@index')->name('support');
+        Route::get('/view/{ticket}','SupportController@view')->name('support.view');
+        Route::post('/send/{ticket}','SupportController@newMessage')->name('support.send');
+        Route::get('/action/{ticket}/{action}','SupportController@action')->name('support.action');
+        Route::get('/arbitration/{project}','SupportController@judge')->name('support.judge.create');
+        Route::get('/create','SupportController@create')->name('support.create');
+        Route::post('/create','SupportController@store')->name('support.store');
         Route::get('/contact','SupportController@contact')->name('support.contact');
     });
     // Rules

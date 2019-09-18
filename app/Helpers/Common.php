@@ -442,3 +442,65 @@ if (!function_exists('messageStatus')) {
     }
 }
 
+
+if (!function_exists('ticket_type')) {
+    function ticket_type(\App\Ticket $ticket,$badge=true,$icon=false)
+    {
+        if($badge){
+            if($ticket->type == "judgement"){
+                return '<span class="badge badge-warning">داوری</span>';
+            }elseif($ticket->type == "support") {
+                return '<span class="badge badge-primary">پشتیبانی</span>';
+            }elseif($ticket->type == "question") {
+                return '<span class="badge badge-secondary">سوال</span>';
+            }elseif($ticket->type == "suggestions") {
+                return '<span class="badge badge-info">پیشنهادات</span>';
+            }elseif($ticket->type == "critics") {
+                return '<span class="badge badge-danger">انتقادات</span>';
+            }
+        }elseif($icon){
+            if($ticket->type == "judgement"){
+                return '<span class="text-warning"><i class="fa fa-balance-scale align-middle"></i></span>';
+            }elseif($ticket->type == "support") {
+                return '<span class="text-primary"><i class="fa fa-life-ring align-middle"></i></span>';
+            }elseif($ticket->type == "question") {
+                return '<span class="text-secondary"><i class="fa fa-question-circle align-middle"></i></span>';
+            }elseif($ticket->type == "suggestions") {
+                return '<span class="text-info"><i class="fa fa-comments align-middle"></i></span>';
+            }elseif($ticket->type == "critics") {
+                return '<span class="text-danger"><i class="fa fa-commenting align-middle"></i></span>';
+            }
+        }else {
+            if($ticket->type == "judgement"){
+                return 'داوری';
+            }elseif($ticket->type == "support") {
+                return 'پشتیبانی';
+            }elseif($ticket->type == "question") {
+                return 'سوال';
+            }elseif($ticket->type == "suggestions") {
+                return 'پیشنهادات';
+            }elseif($ticket->type == "critics") {
+                return 'انتقادات';
+            }
+        }
+    }
+}
+
+if (!function_exists('ticket_status')) {
+    function ticket_status(\App\Ticket $ticket,$badge=true)
+    {
+        if($badge){
+            if($ticket->status == "open"){
+                return '<span class="badge badge-primary">باز</span>';
+            }else {
+                return '<span class="badge badge-warning">بسته</span>';
+            }
+        }else {
+            if($ticket->status == "open"){
+                return 'باز';
+            }else {
+                return 'بسته';
+            }
+        }
+    }
+}

@@ -91334,11 +91334,15 @@ window.onload = function () {
 
 __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 
-window.contentS = "", window.sidebarS = ""; // Jquery Stuff
+window.contentS = "";
+window.sidebarS = ""; // Jquery Stuff
 
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.toast').toast({
     delay: 5000
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()("#fullscreen").click(function () {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).parents('.card').toggleClass('fullscreen');
   }); // Logout
 
   jquery__WEBPACK_IMPORTED_MODULE_0___default()("#logout").click(function (e) {
@@ -91367,7 +91371,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
     scrollbars: {
       autoHide: "leave"
     }
-  }).removeClass("os-host-rtl"); // Action Verification Required
+  });
+  window.sidebarS.removeClass("os-host-rtl"); // Action Verification Required
 
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(".btn-ask").click(function (e) {
     var _this = this;
@@ -91400,7 +91405,11 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.menu .submenu.active').removeClass('active').slideUp(500);
       jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).next('.submenu').slideDown(500).addClass('active');
-      moveScroll('#sidebar .menu .nav-link', 700, 0, true);
+      var target = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).next('.submenu').attr('id');
+      console.log(jquery__WEBPACK_IMPORTED_MODULE_0___default()('#' + target).length);
+      setTimeout(function () {
+        moveScroll('#' + target, 700, 0, true);
+      }, 600);
     }
   });
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('.toggle a').click(function () {
@@ -91529,7 +91538,7 @@ global.moveScroll = function (to) {
 
   if (sidebar) {
     sidebarS.overlayScrollbars().scroll({
-      y: jquery__WEBPACK_IMPORTED_MODULE_0___default()(to).last().offset().top,
+      y: jquery__WEBPACK_IMPORTED_MODULE_0___default()(to).offset().top,
       x: 0
     }, delay);
   } else {

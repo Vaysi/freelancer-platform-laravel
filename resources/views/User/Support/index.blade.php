@@ -6,12 +6,13 @@
                 <div class="card custom">
                     <div class="card-title d-flex justify-content-between align-items-center">
                         <span>درخواست های پشتیبانی </span>
-                        <a href="#" class="btn btn-danger rounded-corner-3">تیکت جدید</a>
+                        <a href="{{ route('support.create') }}" class="btn btn-danger rounded-corner-3">تیکت جدید</a>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table normal">
-                                <thead>
+                        @if($tickets->count())
+                            <div class="table-responsive">
+                                <table class="table normal">
+                                    <thead>
                                     <tr class="text-center">
                                         <th scope="col" width="5%">#</th>
                                         <th class="text-right" scope="col" width="40%">عنوان</th>
@@ -19,175 +20,37 @@
                                         <th scope="col" width="20%">زمان درخواست</th>
                                         <th scope="col" width="5%">وضعیت</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">
-                                            1
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-primary">پشتیبانی</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            2
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-warning">داوری</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            1
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-primary">پشتیبانی</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            1
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-primary">پشتیبانی</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            1
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-primary">پشتیبانی</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            1
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-primary">پشتیبانی</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            1
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-primary">پشتیبانی</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            1
-                                        </th>
-                                        <td class="small">
-                                            <a href="#" class="text-info small">
-                                                ناپدید شدن قسمت ضمیمه گذاری فایل
-                                            </a>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span class="badge badge-primary">پشتیبانی</span>
-                                        </td>
-                                        <td class="text-center small">
-                                            <span>17 تیر 1398 21:20:28	</span>
-                                        </td>
-                                        <td class="small">
-                                            بسته
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($tickets as $ticket)
+                                        <tr>
+                                            <th scope="row">
+                                                {{ $loop->iteration }}
+                                            </th>
+                                            <td class="small">
+                                                <a href="{{ $ticket->link() }}" class="text-info small">
+                                                    {{ $ticket->title }}
+                                                </a>
+                                            </td>
+                                            <td class="text-center small">
+                                                {!! ticket_type($ticket) !!}
+                                            </td>
+                                            <td class="text-center small">
+                                                <span>{{ jdate($ticket->created_at)->format('d F Y - h:i:s') }}</span>
+                                            </td>
+                                            <td class="small text-center">
+                                                {!! ticket_status($ticket) !!}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <div class="alert alert-warning rounded-corner-2-half">شما هیچ تیکت پشتیبانی در وبسایت ندارید !</div>
+                        @endif
                         <nav>
-                            <ul class="pagination justify-content-center h6 small pr-0 mb-0">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1"><i class="fa fa-angle-double-right"></i></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="fa fa-angle-double-left"></i></a>
-                                </li>
-                            </ul>
+                            {!! render($tickets->render()) !!}
                         </nav>
                     </div>
                 </div>
@@ -201,9 +64,9 @@
             </div>
             <div class="card-body text-center" >
                 <div style="height: 70px;" class="d-flex justify-content-center align-items-center font-weight-bold text-info">
-                    <span>5 درخواست</span>
+                    <span>{{ $tickets->count() }} درخواست</span>
                 </div>
-                <a href="#" class="btn btn-info round mt-2">پرسش های متداول</a>
+                <a href="{{ route('faq') }}" class="btn btn-info round mt-2">پرسش های متداول</a>
             </div>
         </div>
     </div>

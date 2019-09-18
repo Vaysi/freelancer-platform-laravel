@@ -185,6 +185,14 @@
                         @endif
                     @endif
                 @endif
+                @if(in_array($project->status,['flc_done','trust_done','flc_trust','emp_trust']))
+                    <div class="my-2">
+                        <a href="{{ route('support.judge.create',$project->id) }}" class="btn btn-outline-danger w-100 round">
+                            <i class="fa fa-balance-scale ml-1"></i>
+                            درخواست داوری
+                        </a>
+                    </div>
+                @endif
                 @if(in_array($project->status,['flc_done','trust_done']))
                     @if($project->isEmployer())
                         <div class="my-2">

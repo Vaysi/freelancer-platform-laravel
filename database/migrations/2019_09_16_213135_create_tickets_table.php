@@ -20,6 +20,7 @@ class CreateTicketsTable extends Migration
             $table->unsignedBigInteger('judge_id')->nullable()->default(null);
             $table->string('title');
             $table->unsignedBigInteger('project_id')->nullable()->default(null);
+            $table->longText('content');
             $table->string('type')->default('support');
             $table->string('status')->default('open');
             $table->timestamps();
